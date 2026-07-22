@@ -1,36 +1,79 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# CatHub
 
-## Getting Started
+CatHub is a full-stack digital companion platform for cat owners, a place to track health records, vaccinations, breed information and daily care, all in one beautifully designed app.
 
-First, run the development server:
+## Live Demo
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+https://cat-hub-psi.vercel.app
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Features
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- User registration and authentication (email confirmation, password reset)
+- Add, edit and delete cat profiles with photo upload
+- Medical timeline: vaccinations, deworming, vet visits, treatments and surgeries
+- Automatic health status detection based on due dates and breed weight ranges
+- Smart calendar with birthdays and upcoming medical reminders
+- Breed Explorer with 60+ real breeds (search, filter, detailed profiles)
+- Breed Comparison tool with side-by-side stats
+- "Find Your Cat" quiz: breed recommendation based on lifestyle answers
+- Community page: share public cat profiles with other users
+- Contact form with real email delivery
+- Dark mode with smooth theme transitions
+- Fully responsive, with custom animations, micro-interactions and a floating magnetic navbar
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Security Features
 
-## Learn More
+- Row Level Security (RLS) policies on every database table
+- Server-side-only API keys (never exposed to the browser)
+- Protected routes via Next.js middleware, backed by database-level access control
+- Honeypot spam protection on public forms
+- Scoped Supabase Storage policies (users can only write to their own folder)
 
-To learn more about Next.js, take a look at the following resources:
+## Technologies
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Frontend
+- Next.js 16 (App Router, Server Components)
+- TypeScript
+- Tailwind CSS 4
+- shadcn/ui (Base UI)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Backend
+- Supabase (PostgreSQL, Authentication, Storage)
+- Next.js Route Handlers (API routes)
 
-## Deploy on Vercel
+### External Services
+- TheCatAPI - real breed data and images
+- Resend - transactional email delivery
+- Vercel - hosting and deployment
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Database
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Main tables:
+- `cats` - pet profiles (owner, breed, weight, health status, public/private visibility)
+- `medical_records` - vaccinations, treatments, vet visits, linked to each cat
+- `profiles` - public-facing user info (name, avatar) for the Community page
+- `contact_messages` - messages submitted through the contact form
+
+All tables are protected with Row Level Security, ensuring users can only access their own data (or explicitly public cat profiles).
+
+## Project Purpose
+
+CatHub was built as a personal portfolio project to demonstrate full-stack development skills: authentication, a real relational database with RLS, third-party API integration, file storage, transactional email, and a polished, production-quality UI/UX from the ground up.
+
+## Author
+
+Liviu Spînu
+
+LinkedIn: https://www.linkedin.com/in/liviu005/
+
+# Screenshots
+
+## Homepage
+
+![Homepage](screenshots/homepage.png)
+
+## Explore breeds
+![Event Details](screenshots/breeds.png)
+
+## Compare breeds
+![Event Details](screenshots/compare.png)
