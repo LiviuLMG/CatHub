@@ -70,10 +70,10 @@ LinkedIn: https://www.linkedin.com/in/liviu005/
 
 ## Homepage
 
-![Homepage](screenshots/homepage.png)
+![Homepage](screenshots/homepagee.png)
 
 ## Explore breeds
-![Event Details](screenshots/breeds.png)
+![Event Details](screenshots/breedss.png)
 
 ## Compare breeds
-![Event Details](screenshots/compare.png)
+![Event Details](screenshots/comparee.png)
