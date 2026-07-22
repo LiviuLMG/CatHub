@@ -5,7 +5,14 @@ import type { Cat, MedicalRecord } from "@/lib/types";
 export default async function CalendarPage() {
   const supabase = await createClient();
 
-  const { data: cats } = await supabase.from("cats").select("*");
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
+
+  const { data: cats } = await supabase
+    .from("cats")
+    .select("*")
+    .eq("owner_id", user?.id);
   const { data: records } = await supabase.from("medical_records").select("*");
 
   return (

@@ -38,6 +38,7 @@ export default async function DashboardPage() {
     const { data: cats } = await supabase
         .from("cats")
         .select("*")
+        .eq("owner_id", user?.id)
         .order("created_at", { ascending: false });
 
     const { data: records } = await supabase.from("medical_records").select("*");
@@ -56,7 +57,7 @@ export default async function DashboardPage() {
     const totalCats = catsWithStatus.length;
     const healthyCats = catsWithStatus.filter((c) => c.computedStatus === "healthy").length;
     const needsAttention = catsWithStatus.filter((c) => c.computedStatus === "needs_attention").length;
-    
+
     const avgWeight =
         cats && cats.length > 0
             ? (

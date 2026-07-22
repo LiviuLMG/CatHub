@@ -34,9 +34,14 @@ const healthLabels: Record<Cat["health_status"], string> = {
 export default async function MyCatsPage() {
   const supabase = await createClient();
 
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
+
   const { data: cats } = await supabase
     .from("cats")
     .select("*")
+    .eq("owner_id", user?.id)
     .order("created_at", { ascending: false });
   const { data: records } = await supabase.from("medical_records").select("*");
   const breeds = await getAllBreeds();
