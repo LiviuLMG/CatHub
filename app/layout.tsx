@@ -8,6 +8,7 @@ import { AuthModal } from "@/components/auth-modal";
 import { ScrollToTop } from "@/components/scroll-to-top";
 import { CatMascot } from "@/components/cat-mascot";
 import { PawTrail } from "@/components/paw-trail";
+import { Analytics } from "@vercel/analytics/next";
 import { CursorBlob } from "@/components/cursor-blob";
 import { LottieMascot } from "@/components/lottie-mascot";
 import "./globals.css";
@@ -58,6 +59,7 @@ export default function RootLayout({
             }}
           />
         </ThemeProvider>
+        <Analytics />
       </body>
     </html>
   );
